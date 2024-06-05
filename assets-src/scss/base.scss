@@ -1,0 +1,58 @@
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%; /* Prevent font scaling in iPhone landscape while allowing user zoom */
+    font-size: 16px;
+
+    @media only screen and (width < 275px) {
+        font-size: 7.4667px;
+    }
+
+    @media only screen and (275px <= width < 375px) {
+        font-size: 11.7333px;
+    }
+
+    @media only screen and (width > 3000px) {
+        font-size: 24px;
+    }
+
+    @media only screen and (width > 5000px) {
+        font-size: 32px;
+    }
+
+    @media only screen and (width > 6750px) {
+        font-size: 48px;
+    }
+}
+
+body {
+    width: 100%;
+    background: rgb(83,63,251);
+    background: linear-gradient(0deg, rgba(83,63,251,1) 40%, rgba(255,159,71,1) 100%);
+    font-family: var(--font-family-main-with-fallback);
+    color: var(--font-color-base);
+}
+
+main {
+    width: 100%;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+a, a:hover {
+    color: var(--font-color-base);
+    text-decoration: none;
+}
+
+svg {
+    display: none;
+}

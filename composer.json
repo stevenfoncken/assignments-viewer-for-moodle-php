@@ -1,0 +1,52 @@
+{
+    "name": "stevenfoncken/assignments-viewer-for-moodle-php",
+    "description": "PHP web application that lists the currently due assignments of a Moodle™ user",
+    "type": "project",
+    "license": "MIT",
+    "homepage": "https://github.com/stevenfoncken/assignments-viewer-for-moodle-php",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "authors": [
+        {
+            "name": "stevenfoncken",
+            "email": "dev@stevenfoncken.de",
+            "homepage": "https://www.stevenfoncken.de",
+            "role": "Developer"
+        }
+    ],
+    "keywords": [
+        "moodle", "php"
+    ],
+    "support": {
+        "issues": "https://github.com/stevenfoncken/assignments-viewer-for-moodle-php/issues",
+        "source": "https://github.com/stevenfoncken/assignments-viewer-for-moodle-php",
+        "security": "https://github.com/stevenfoncken/assignments-viewer-for-moodle-php/blob/master/.github/SECURITY.md"
+    },
+    "config": {
+        "sort-packages": true,
+        "platform": {
+            "php": "8.3"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "StevenFoncken\\AssignmentsViewerForMoodle\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=8.3",
+        "ext-curl": "*",
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-latest"
+    },
+    "scripts": {
+        "pre-command-run": [
+            "@php -r '$BM = \"\\033[0;95m\"; $BY = \"\\033[0;93m\"; $NC = \"\\033[0m\"; echo $BM . \"\\nWorkaround for deploy-dir structure - *pre-command-run* script\\n\" . $NC; echo $BY . \"Move ./deploy/vendor to ./vendor\\n\" . $NC; is_dir(\"deploy/vendor\") ? rename(\"deploy/vendor\", \"vendor\") : null; echo $BM . \"Done\\n\\n\" . $NC;'"
+        ],
+        "post-autoload-dump": [
+            "@php -r '$BM = \"\\033[0;95m\"; $BY = \"\\033[0;93m\"; $NC = \"\\033[0m\"; echo $BM . \"\\nWorkaround for deploy-dir structure - *post-autoload-dump* script\\n\" . $NC; echo $BY . \"Move ./vendor back to ./deploy\\n\" . $NC; rename(\"vendor\", \"deploy/vendor/\"); echo $BM . \"Done\\n\\n\" . $NC; /*https://github.com/composer/composer/issues/5198 & https://github.com/composer/composer/issues/8387*/'"
+        ]
+    }
+}

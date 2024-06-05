@@ -1,0 +1,13 @@
+/deploy/var/cache/*
+!/deploy/var/cache/.gitkeep
+
+/deploy/docroot/dist/
+
+/vendor/
+/deploy/vendor/
+
+/deploy/config/*
+!/deploy/config/.env.dist
+!/deploy/config/config.php
+
+/node_modules/

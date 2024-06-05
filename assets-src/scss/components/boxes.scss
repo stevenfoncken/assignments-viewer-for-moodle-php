@@ -1,0 +1,178 @@
+.main {
+    &__boxes-container {
+        width: 90%;
+        margin-top: 5.5rem;
+        margin-bottom: 3rem;
+        pointer-events: auto;
+
+        &__heading {
+            margin-bottom: 2.25rem;
+            padding-left: 0.625rem;
+            font-size: 2rem;
+            font-weight: var(--font-weight-bold);
+            pointer-events: none;
+            user-select: none;
+        }
+
+        &__grid {
+            &__link {
+                display: block;
+                margin-bottom: 0.95rem;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                &__box {
+                    padding: 1.55rem;
+                    border: 0.2rem solid var(--box-border-color);
+                    border-radius: 1.4375rem;
+                    background-color: #121212;
+                    transition: transform 0.3s ease-in-out;
+                    cursor: pointer;
+
+                    &__heading {
+                        display: flex;
+                        margin-bottom: 0.55rem;
+                        font-size: 1.1rem;
+                        font-weight: var(--font-weight-bold);
+
+                        &__text {
+                            padding-right: 0.7rem;
+                            display: block;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                        }
+
+                        &__link-indicator {
+                            margin-left: auto;
+                            align-self: center;
+                            order: 2;
+
+                            &__arrow-icon {
+                                width: 1.25rem;
+                                aspect-ratio: 1 / 1;
+                                display: block;
+                                fill: var(--font-color-base);
+                            }
+                        }
+                    }
+
+                    &__course-info {
+                        font-size: 0.80rem;
+                        margin-bottom: 0.9rem;
+                        font-weight: var(--font-weight-bold);
+                    }
+
+                    &__table {
+                        font-size: 0.85rem;
+                        font-weight: var(--font-weight-normal);
+                        line-height: 1.45;
+                        text-align: left;
+
+                        th {
+                            padding-right: 0.75rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (--sm-tablets) {
+    .main {
+        &__boxes-container {
+            &__heading {
+                font-size: 2.5rem;
+            }
+
+            &__grid {
+                &__link {
+                    margin-bottom: 1.5rem;
+
+                    &__box {
+                        &__heading {
+                            font-size: 1.2rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (--lg-tablets) {
+    .main {
+        &__boxes-container {
+            width: unset;
+            margin-left: 2rem;
+            margin-right: 2rem;
+
+            &__grid {
+                display: grid;
+                grid-template-columns: repeat(6, 1fr);
+                gap: 1rem;
+                flex: 1 1 auto;
+
+                &__link {
+                    grid-column: span 2;
+
+                    &__box {
+                        width: 100%;
+                        max-width: 25rem;
+                        padding: 1.85rem;
+
+                        &__heading {
+                            font-size: 1.35rem;
+                        }
+
+                        &__course-info {
+                            font-size: 0.90rem;
+                        }
+
+                        &__table {
+                            font-size: 0.95rem;
+                            line-height: 1.6;
+                        }
+                    }
+
+                    /* 2 orphan */
+                    &:last-child:nth-child(3n - 1) {
+                        grid-column-end: -2;
+                    }
+
+                    &:nth-last-child(2):nth-child(3n + 1) {
+                        grid-column-end: 4;
+                    }
+
+                    /* 1 orphan */
+                    &:last-child:nth-child(3n - 2) {
+                        grid-column-end: 5;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (--sm-desktop) {
+    .main {
+        &__boxes-container {
+            &__grid {
+                gap: 1.75rem;
+
+                &__link {
+                    &__box {
+                        max-width: 30rem;
+
+                        &:hover {
+                            transform: scale(0.9127);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
