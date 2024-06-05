@@ -38,5 +38,4 @@ jobs:
         run: composer require --dev "squizlabs/php_codesniffer"
 
       - name: Run PHP_CodeSniffer
-        #run: php vendor/bin/phpcs --standard=.github/codestyle/phpcs_ruleset.xml --extensions=php .
-        run: php vendor/bin/phpcs --config-set show_warnings 0 && php vendor/bin/phpcs --standard=PSR12 --ignore=vendor/ --extensions=php .
+        run: php deploy/vendor/bin/phpcs --config-set show_warnings 0 && php deploy/vendor/bin/phpcs --standard=PSR12 --ignore=deploy/vendor/ --extensions=php .
